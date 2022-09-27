@@ -26,8 +26,17 @@ const userSchema = new mongoose.Schema(
 );
 
 const ShareholderSchema = new mongoose.Schema({
+  ShareholderID: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
   Name: {
     type: String,
+    required: true,
+  },
+  IdentityCard:{
+    type: Number,
     required: true,
     unique: true,
   },
@@ -39,10 +48,6 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  IdentityCard: {
-    type: Number,
-    required: true,
-  },
   Ethnic: {
     type: String,
     required: true,
@@ -51,10 +56,7 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Earnings: {
-    type: Number,
-    required: true,
-  },
+  
 });
 
 let Users = mongoose.model("AccountUSers", userSchema);

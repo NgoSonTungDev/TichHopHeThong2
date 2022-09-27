@@ -1,16 +1,11 @@
 import React from "react";
 import {
-  BarChart,
-  Bar,
   XAxis,
   YAxis,
   Tooltip,
-  Legend,
   CartesianGrid,
-  LineChart,
   AreaChart,
   Area,
-  Line,
 } from "recharts";
 
 const data = [

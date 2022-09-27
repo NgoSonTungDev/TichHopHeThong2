@@ -1,7 +1,7 @@
-const userRouter = require('./users')
+const staffRouter = require('./staff')
 
 
 function route (app) {
-    app.use('/',userRouter)
+    app.use('/',staffRouter)
 }
 module.exports = route

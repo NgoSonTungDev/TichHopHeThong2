@@ -62,11 +62,8 @@ const Login = () => {
           setStory("success");
           var checkAdmin = response.data.admin;
           if (checkAdmin === false) {
-            localStorage.setItem("username", response.data.username);
-            localStorage.setItem("admin", response.data.admin);
-            setTimeout(() => {
-              navigation("/home-page");
-            }, 1000);
+           
+            alert(`Hello ${response.data.username}`)
           } else {
             localStorage.setItem("admin", response.data.admin);
             localStorage.setItem("username", response.data.username);

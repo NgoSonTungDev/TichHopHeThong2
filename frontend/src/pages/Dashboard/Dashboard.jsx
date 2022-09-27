@@ -6,38 +6,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const [account, setAccount] = useState("");
-  const [product, setProduct] = useState("");
-  const [order, setOder] = useState("");
   const navigation = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/Historybought/allHistory")
-      .then(function (response) {
-        setOder(response.data);
-      })
-      .catch(function (error) {
-        console.log("lỗi :", error);
-      });
-    ////////////////
-    axios
-      .get("http://localhost:5000/api/user/all-user")
-      .then(function (response) {
-        setAccount(response.data);
-      })
-      .catch(function (error) {
-        console.log("lỗi :", error);
-      });
-    ////////////
-    axios
-      .get("http://localhost:5000/api/movie/all-movie")
-      .then(function (response) {
-        setProduct(response.data);
-      })
-      .catch(function (error) {
-        console.log("lỗi :", error);
-      });
+    
   }, []);
 
   return (
@@ -67,7 +39,7 @@ const Dashboard = () => {
                 }}
               >
                 <i className="bx bxs-user-account"></i>
-                <p>{account.length}</p>
+                <p>10</p>
                 <span>Tài khoản</span>
               </div>
               <div
@@ -77,7 +49,7 @@ const Dashboard = () => {
                 }}
               >
                 <i className="bx bx-folder"></i>
-                <p>{product.length}</p>
+                <p>10</p>
                 <span>Sản phẩm</span>
               </div>
               <div
@@ -88,7 +60,7 @@ const Dashboard = () => {
                 }}
               >
                 <i className="bx bxs-package"></i>
-                <p>{order.length}</p>
+                <p>20</p>
                 <span>Đơn Hàng</span>
               </div>
             </div>
