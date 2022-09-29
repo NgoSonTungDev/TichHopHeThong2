@@ -15,12 +15,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* {admin === "true" && (
-            <Route path="/account-management" element={<AccountManagement />} />
-          )}
-          {admin === "true" && (
-            <Route path="/movie-management" element={<MovieManagement />} />
-          )} */}
           {admin === "true" && (
             <Route
               path="/admin-dashboard"

@@ -58,18 +58,16 @@ const Login = () => {
         .then(function (response) {
           setCheck(false);
           handleClick();
-          setMessage("Đăng Nhập Thành công !!!");
+          setMessage("bạn không phải là admin !!!");
           setStory("success");
-          var checkAdmin = response.data.admin;
-          if (checkAdmin === false) {
-           
-            alert(`Hello ${response.data.username}`)
-          } else {
+          if (response.data.admin === false) {
+            alert(`Hello ${response.data.username} `)
+          } else  if (response.data.admin === true) {
             localStorage.setItem("admin", response.data.admin);
             localStorage.setItem("username", response.data.username);
             setTimeout(() => {
               navigation("/admin-dashboard");
-            }, 1500);
+            }, 1000);
           }
         })
         .catch(function (error) {

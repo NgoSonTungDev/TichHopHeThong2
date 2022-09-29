@@ -61,18 +61,13 @@
       height: 250px;
       justify-content: space-between;
       .container_Dashboard_body_main_card {
+        width: 350px;
+        height: 200px;
         margin-top: 25px;
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
           rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        width: 300px;
-        height: 200px;
         text-align: center;
         background-color: #fcfffc;
-        // &:hover {
-        //   cursor: pointer;
-        //   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-        //     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        // }
         i {
           margin-top: 40px;
           font-size: 60px;
@@ -112,10 +107,11 @@
         th{
           text-transform: capitalize
         }
+        
       }
       
       td, th {
-        font-size: 12px;
+        font-size: 13px;
 
         border: 1px solid #dddddd;
         text-align: left;
