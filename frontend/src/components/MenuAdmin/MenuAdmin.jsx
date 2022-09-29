@@ -6,10 +6,6 @@ const MenuAdmin = () => {
   const navigation = useNavigate();
   const [check, setCheck] = useState(1);
 
-  const handleAcctive = (e) => {
-    setCheck(e);
-  };
-
   return (
     <div>
       <div className="container_menu_admin">
@@ -31,7 +27,7 @@ const MenuAdmin = () => {
               check === 1 && "acctiveMenuAdmin"
             }`}
             onClick={() => {
-              handleAcctive(1);
+              setCheck(1);
               navigation("/admin-dashboard");
             }}
           >
@@ -41,25 +37,25 @@ const MenuAdmin = () => {
             className={`option_menu_admin  ${
               check === 2 && "acctiveMenuAdmin"
             }`}
-            onClick={() => {
-              handleAcctive(2);
-              // navigation("/movie-management");
+            onClick={async () => {
+              setCheck(2);
+              navigation("/user-information");
             }}
           >
-            <i class='bx bxs-data'></i> <span>Database 1</span>
+            <i class="bx bx-user-circle"></i> <span>Thông tin cá nhân</span>
           </li>
           <li
             className={`option_menu_admin  ${
               check === 3 && "acctiveMenuAdmin"
             }`}
             onClick={() => {
-              handleAcctive(3);
-              // navigation("/account-management");
+              setCheck(3);;
+              navigation("/user-detail");
             }}
           >
-            <i class='bx bxs-data'></i> <span>Database 2</span>
+            <i class="bx bxs-user-badge"></i> <span>Thông tin chi tiết</span>
           </li>
-          
+
           <li
             className="option_menu_admin"
             onClick={() => {

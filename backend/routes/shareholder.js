@@ -3,6 +3,7 @@ const router = require("express").Router();
 
 router.post("/add",ShareholderController.addShareholder)
 router.get("/all",ShareholderController.getAll)
+// router.get("/all-connect",ShareholderController.JoinData)
 router.get("/:id",ShareholderController.GetAnShareholder)
 router.put("/:id",ShareholderController.UpdateShareholder)
 router.delete("/:id",ShareholderController.deleteShareholder)

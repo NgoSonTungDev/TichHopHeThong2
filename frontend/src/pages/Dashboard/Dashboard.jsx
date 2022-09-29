@@ -55,19 +55,18 @@ const Dashboard = () => {
           <div className="container_Dashboard_body_main">
             <div className="container_Dashboard_body_main_statistics">
               <div className="container_Dashboard_body_main_card">
-                <i class="bx bx-money-withdraw"></i>
-                <p>{sumArray(sumEarnings)}</p>
+                <i className="bx bx-money-withdraw"></i>
+                <p className="dollars">{sumArray(sumEarnings)}</p>
                 <span>Tổng thu nhập của các cổ đông</span>
               </div>
               <div className="container_Dashboard_body_main_card">
-                <i class="bx bx-user-x"></i>
+                <i className="bx bx-user-x"></i>
                 <p>{sumArray(sumDayOff)}</p>
                 <span>Tổng ngày nghĩ của các cổ đông</span>
               </div>
               <div className="container_Dashboard_body_main_card">
-                <i class="bx bx-money"></i>
-
-                <p>{sumArray(sumEarnings) / dataDB2.length}</p>
+                <i className="bx bx-money"></i>
+                <p className="dollars">{sumArray(sumEarnings) / dataDB2.length}</p>
                 <span>Trung bình lợi ích</span>
               </div>
             </div>
