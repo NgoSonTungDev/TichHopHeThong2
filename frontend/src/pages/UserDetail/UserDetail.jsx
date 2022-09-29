@@ -54,8 +54,8 @@ const UserDetail = () => {
                     <td>{item.Name}</td>
                     <td>{item.IdentityCard}</td>
                     <td>{item.IsShareholder}</td>
-                    <td>{item.Earnings}</td>
                     <td>{item.DayOff}</td>
+                    <td>{item.Earnings}</td>
                     <td>{item.PaidLastYear}</td>
                     <td>{item.PaidToCate}</td>
                   </tr>

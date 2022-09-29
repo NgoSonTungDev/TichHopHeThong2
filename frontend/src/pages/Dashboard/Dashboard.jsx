@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import MenuAdmin from "../../components/MenuAdmin/MenuAdmin";
 import ChartAdmin from "../../components/Chart/Chart";
 import "./Dashboard.scss";
@@ -6,12 +6,22 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigation = useNavigate();
   const [dataDB1, setDataDB1] = useState([]);
   const [dataDB2, setDataDB2] = useState([]);
-  const navigation = useNavigate();
   const data = dataDB2.filter((item) => item.IsShareholder === "Cổ Đông");
   const sumEarnings = data.map((item) => item.Earnings);
   const sumDayOff = data.map((item) => item.DayOff);
+  const array = useRef([]);
+  const arrayFail = useRef([]);
+  const group = [];
+
+  array.current.forEach((element) => {
+    const o = (group[element.ShareholderID] = group[element.ShareholderID] || {
+      ...element,
+    });
+    return o;
+  });
 
   const sumArray = (array) => {
     let sum = 0;
@@ -30,8 +40,6 @@ const Dashboard = () => {
 
     axios.all([getAPIDB1, getAPIDB2]).then(
       axios.spread((...allData) => {
-        // console.log("database1", allData[0].data);
-        // console.log("database2",allData[1].data.data);
         setDataDB1(allData[0].data);
         setDataDB2(allData[1].data.data);
       })
@@ -41,6 +49,19 @@ const Dashboard = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    dataDB1.forEach(function (value) {
+      dataDB2.forEach(function (value2) {
+        if (value.ShareholderID == value2.ShareholderID) {
+          let merged = { ...value, ...value2 };
+          array.current.push(merged);
+        } else {
+          arrayFail.current.push(value);
+        }
+      });
+    });
+  });
 
   return (
     <div>
@@ -66,7 +87,9 @@ const Dashboard = () => {
               </div>
               <div className="container_Dashboard_body_main_card">
                 <i className="bx bx-money"></i>
-                <p className="dollars">{sumArray(sumEarnings) / dataDB2.length}</p>
+                <p className="dollars">
+                  {sumArray(sumEarnings) / dataDB2.length}
+                </p>
                 <span>Trung bình lợi ích</span>
               </div>
             </div>
@@ -86,8 +109,8 @@ const Dashboard = () => {
                   <th>trả vào năm ngoái</th>
                   <th>thanh toán cho đến nay</th>
                 </tr>
-                {dataDB1.map((item) => (
-                  <tr>
+                {group.map((item) => (
+                  <tr key={item._id}>
                     <td>{item.ShareholderID}</td>
                     <td>{item.Name}</td>
                     <td>{item.IdentityCard}</td>
@@ -95,11 +118,11 @@ const Dashboard = () => {
                     <td>{item.Gender}</td>
                     <td>{item.Ethnic}</td>
                     <td>{item.TypeOfEmployee}</td>
-                    <td>NULL</td>
-                    <td>NULL</td>
-                    <td>NULL</td>
-                    <td>NULL</td>
-                    <td>NULL</td>
+                    <td>{item.IsShareholder}</td>
+                    <td>{item.DayOff}</td>
+                    <td>{item.Earnings}</td>
+                    <td>{item.PaidLastYear}</td>
+                    <td>{item.PaidToCate}</td>
                   </tr>
                 ))}
               </table>

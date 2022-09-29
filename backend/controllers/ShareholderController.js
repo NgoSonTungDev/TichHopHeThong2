@@ -74,55 +74,6 @@ const ShareholderController = {
       res.status(500).json(error);
     }
   },
-  // JoinData: async (req, res) => {
-  //   try {
-  //     await request(
-  //       { url: "http://localhost:8000/staff" },
-  //       (error, response) => {
-  //         const data = JSON.parse(response.body);
-  //         const datflie = data.data;
-  //         Shareholder.aggregate([
-  //           {
-  //             $lookup: {
-  //               from: `${datflie}`,
-  //               as: `${datflie}`,
-  //               let: { ShareholderID: `${datflie.ShareholderID}` },
-  //               pipeline: [
-  //                 {
-  //                   $match: {
-  //                     $expr: {
-  //                       $eq: [
-  //                         `${datflie.ShareholderID}`,
-  //                         `$${datflie.ShareholderID}`,
-  //                       ],
-  //                     },
-  //                   },
-  //                 },
-  //               ],
-  //             },
-  //           },
-  //           {
-  //             $project: {
-  //               ShareholderID: 1,
-  //               Name: 1,
-  //               IdentityCard: 1,
-  //               datflie: 1,
-  //             },
-  //           },
-  //         ]).exec((err, result) => {
-  //           if (err) {
-  //             res.send(err);
-  //           }
-  //           if (result) {
-  //             return res.status(200).json(result);
-  //           }
-  //         });
-  //       }
-  //     );
-  //   } catch (error) {
-  //     res.status(500).json(error);
-  //   }
-  // },
 };
 
 module.exports = ShareholderController;

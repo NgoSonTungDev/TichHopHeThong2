@@ -57,14 +57,15 @@ const Login = () => {
         })
         .then(function (response) {
           setCheck(false);
-          handleClick();
-          setMessage("bạn không phải là admin !!!");
-          setStory("success");
+
           if (response.data.admin === false) {
-            alert(`Hello ${response.data.username} `)
-          } else  if (response.data.admin === true) {
+            alert(`Hello ${response.data.username} `);
+            handleClick();
+            setMessage("bạn không phải là admin !!!");
+            setStory("warning");
+          } else if (response.data.admin === true) {
             localStorage.setItem("admin", response.data.admin);
-            localStorage.setItem("username", response.data.username);
+            localStorage.setItem("name", response.data.username);
             setTimeout(() => {
               navigation("/admin-dashboard");
             }, 1000);

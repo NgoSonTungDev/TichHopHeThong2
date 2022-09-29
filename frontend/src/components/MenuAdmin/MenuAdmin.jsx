@@ -5,6 +5,7 @@ import "./MenuAdmin.scss";
 const MenuAdmin = () => {
   const navigation = useNavigate();
   const [check, setCheck] = useState(1);
+  var name = localStorage.getItem("name");
 
   return (
     <div>
@@ -12,12 +13,12 @@ const MenuAdmin = () => {
         <div className="container_menu_admin_intro">
           <div className="container_menu_admin_intro_img">
             <img
-              src="https://scontent.fdad3-4.fna.fbcdn.net/v/t1.15752-9/307387297_1139238373678346_6367312610972623543_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=ae9488&_nc_ohc=tbXeh8OMFQUAX_mMjT7&_nc_ht=scontent.fdad3-4.fna&oh=03_AVKWa7kGw5nnct3dxWES6JDLy-eMdoNzzEhHKTWFMhmSdQ&oe=634E3724"
+              src="https://images.pexels.com/photos/13161994/pexels-photo-13161994.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
               alt=""
             />
           </div>
           <div className="container_menu_admin_intro_text">
-            <p>Mỹ Hương</p>
+            <p>{name}</p>
             <i>admin</i>
           </div>
         </div>
@@ -37,7 +38,7 @@ const MenuAdmin = () => {
             className={`option_menu_admin  ${
               check === 2 && "acctiveMenuAdmin"
             }`}
-            onClick={async () => {
+            onClick={() => {
               setCheck(2);
               navigation("/user-information");
             }}
@@ -49,7 +50,7 @@ const MenuAdmin = () => {
               check === 3 && "acctiveMenuAdmin"
             }`}
             onClick={() => {
-              setCheck(3);;
+              setCheck(3);
               navigation("/user-detail");
             }}
           >
