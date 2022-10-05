@@ -35,7 +35,7 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  IdentityCard:{
+  IdentityCard: {
     type: Number,
     required: true,
     unique: true,
@@ -56,7 +56,6 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
 });
 
 let Users = mongoose.model("AccountUSers", userSchema);

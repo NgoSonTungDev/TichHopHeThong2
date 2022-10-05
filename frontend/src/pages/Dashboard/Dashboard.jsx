@@ -9,7 +9,7 @@ const Dashboard = () => {
   const navigation = useNavigate();
   const [dataDB1, setDataDB1] = useState([]);
   const [dataDB2, setDataDB2] = useState([]);
-  const data = dataDB2.filter((item) => item.IsShareholder === "Cổ Đông");
+  const data = dataDB2.filter((item) => item.IsShareholder === "Phải");
   const sumEarnings = data.map((item) => item.Earnings);
   const sumDayOff = data.map((item) => item.DayOff);
   const array = useRef([]);
@@ -31,6 +31,10 @@ const Dashboard = () => {
     return sum;
   };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const fetchData = () => {
     const APIDB1 = "http://localhost:5000/api/shareholders/all";
     const APIDB2 = "http://localhost:8000/staff";
@@ -47,17 +51,11 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     dataDB1.forEach(function (value) {
       dataDB2.forEach(function (value2) {
         if (value.ShareholderID == value2.ShareholderID) {
           let merged = { ...value, ...value2 };
           array.current.push(merged);
-        } else {
-          arrayFail.current.push(value);
         }
       });
     });
