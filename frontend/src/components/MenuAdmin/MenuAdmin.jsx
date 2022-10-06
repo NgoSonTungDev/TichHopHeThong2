@@ -45,6 +45,14 @@ const MenuAdmin = () => {
           >
             <i class="bx bx-user-circle"></i> <span>Thông tin cá nhân</span>
           </li>
+          <div className="function"
+           onClick={() => {
+            navigation("/function-user");
+          }}>
+            <p>
+              <i class="bx bx-cog"></i> Function
+            </p>
+          </div>
           <li
             className={`option_menu_admin  ${
               check === 3 && "acctiveMenuAdmin"
@@ -56,6 +64,13 @@ const MenuAdmin = () => {
           >
             <i class="bx bxs-user-badge"></i> <span>Thông tin chi tiết</span>
           </li>
+          <div className="function"  onClick={() => {
+              navigation("/function-detail");
+            }}>
+            <p>
+              <i class="bx bx-cog"></i> Function
+            </p>
+          </div>
 
           <li
             className="option_menu_admin"

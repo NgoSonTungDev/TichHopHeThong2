@@ -1,61 +1,132 @@
 .container_AddUserDetail {
-    width: 100%;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  background-color: #e3e5e2;
+  .container_AddUserDetail_menu {
+    width: 18%;
     height: 100vh;
-    overflow: hidden;
-    display: flex;
-    background-color: #e3e5e2;
-    .container_AddUserDetail_menu {
-      width: 18%;
-      height: 100vh;
-    }
-    .container_AddUserDetail_body {
-      width: 82%;
-      height: 100vh;
-      .container_AddUserDetail_body_search {
-        width: 100%;
-        height: 8%;
-        background-color: #fcfffc;
-        border-bottom: 1px solid #a0a0a0b6;
-        display: flex;
-        position: relative;
-        p {
-          text-transform: capitalize;
-          position: absolute;
-          bottom: 0;
-          color: #636e72;
-          left: 20px;
-          font-size: 20px;
-        }
-        .container_AddUserDetail_body_search_input {
-          position: absolute;
-          right: 20px;
-          width: 450px;
-          margin-top: 10px;
-          height: 40px;
-          background-color: #e3e5e2;
-          align-items: center;
-          float: right;
-          i {
-            color: #2d3436;
-            padding: 12px;
-            font-size: 18px;
+  }
+  .container_AddUserDetail_body {
+    width: 82%;
+    height: 100vh;
+    .container_AddUserDetail_body_search {
+      width: 100%;
+      height: 8%;
+      background-color: #fcfffc;
+      border-bottom: 1px solid #a0a0a0b6;
+      display: flex;
+      position: relative;
+      p {
+        text-transform: capitalize;
+        position: absolute;
+        bottom: 0;
+        color: #636e72;
+        left: 20px;
+        font-size: 20px;
+      }
+      .container_AddUserDetail_body_search_input {
+        position: absolute;
+        right: 20px;
+        width: 450px;
+        margin-top: 10px;
+        height: 40px;
+        background-color: #e3e5e2;
+        align-items: center;
+        float: right;
+        i {
+          cursor: pointer;
+          color: #2d3436;
+          padding: 12px;
+          font-size: 18px;
+          &:hover {
+            color: #0984e3;
           }
-          input {
-            width: 85%;
-            margin-left: 15px;
-            font-size: 18px;
-            border: none;
+        }
+        input {
+          width: 85%;
+          margin-left: 15px;
+          font-size: 18px;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+  .container_AddUserDetail_body_main {
+    width: 100%;
+    height: 90%;
+
+    .container_AddUserDetail_form_scroll {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+
+      .container_AddUserDetail_form {
+        width: 40%;
+        height: 100%;
+        margin: auto;
+        padding-top: 25px;
+        padding-bottom: 100px;
+
+        .form {
+          .form-control {
+            margin-bottom: 10px;
+            padding-bottom: 20px;
+            position: relative;
+          }
+          .form-control label {
+            display: inline-block;
+            margin-bottom: 5px;
+          }
+
+          .form-control input {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
             outline: none;
-            background-color: transparent;
-            transform: translateY(-2px);
+
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+          }
+
+          .form-control select {
+            border: 2px solid #f0f0f0;
+            border-radius: 4px;
+            display: block;
+            font-family: inherit;
+            outline: none;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+          }
+          .btn_yes {
+            position: relative;
+            button {
+              margin-top: 30px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              padding: 6px 16px;
+              border-radius: 10px;
+              border: 2px solid #4caf50;
+
+              &:hover {
+                color: #fff;
+                background-color: #4caf50;
+              }
+            }
           }
         }
       }
     }
-    .container_AddUserDetail_body_main {
-      width: 100%;
-      height: 92%;
-
-    }
   }
-  
+}

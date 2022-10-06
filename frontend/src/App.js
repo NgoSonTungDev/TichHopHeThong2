@@ -25,7 +25,7 @@ function App() {
               element={<Dashboard />}
             />
             <Route
-              path="/add-user"
+              path="/function-user"
               element={<AddUserInfor />}
             />
             <Route
@@ -33,7 +33,7 @@ function App() {
               element={<UserInfor />}
             />
             <Route
-              path="/add-detail"
+              path="/function-detail"
               element={<AddUserDetail />}
             />
             <Route

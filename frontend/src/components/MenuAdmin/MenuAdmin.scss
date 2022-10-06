@@ -48,6 +48,25 @@
     width: 100%;
     margin-top: 20px;
     height: 500px;
+    .function{
+      cursor: pointer;
+      width: 150px;
+      height: 40px;
+      margin-left: 50px;
+      display: grid;
+      place-items: center;
+      p{
+        font-size: 18px;
+        margin-top: 5px;
+        letter-spacing: 3px;
+        i{
+          transform: translateY(2px);
+        }
+      }
+      &:hover{
+        color: #0984e3;
+      }
+    }
     .option_menu_admin {
       display: flex;
       list-style: none;

@@ -76,7 +76,7 @@ class StaffsControllers {
     }
   }
 
-  // [POST] /register
+  // [POST] 
   async add(req, res) {
     try {
       await staff.create(req.body);

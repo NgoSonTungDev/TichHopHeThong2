@@ -13,7 +13,6 @@ const Dashboard = () => {
   const sumEarnings = data.map((item) => item.Earnings);
   const sumDayOff = data.map((item) => item.DayOff);
   const array = useRef([]);
-  const arrayFail = useRef([]);
   const group = [];
 
   array.current.forEach((element) => {
@@ -36,7 +35,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchData = () => {
-    const APIDB1 = "http://localhost:5000/api/shareholders/all";
+    const APIDB1 = "http://localhost:8888/api/shareholder/all-shareholder";
     const APIDB2 = "http://localhost:8000/staff";
 
     const getAPIDB1 = axios.get(APIDB1);
@@ -76,19 +75,29 @@ const Dashboard = () => {
               <div className="container_Dashboard_body_main_card">
                 <i className="bx bx-money-withdraw"></i>
                 <p className="dollars">{sumArray(sumEarnings)}</p>
-                <span>Tổng thu nhập của các cổ đông</span>
+                <span>Tổng thu nhập </span>
               </div>
               <div className="container_Dashboard_body_main_card">
                 <i className="bx bx-user-x"></i>
                 <p>{sumArray(sumDayOff)}</p>
-                <span>Tổng ngày nghĩ của các cổ đông</span>
+                <span>Tổng ngày nghĩ </span>
               </div>
               <div className="container_Dashboard_body_main_card">
                 <i className="bx bx-money"></i>
                 <p className="dollars">
                   {sumArray(sumEarnings) / dataDB2.length}
                 </p>
-                <span>Trung bình lợi ích</span>
+                <span>Trung bình cộng</span>
+              </div>
+              <div className="container_Dashboard_body_main_card addDB">
+                <i class="bx bx-data"></i>
+                <br />
+                <span>Thêm vào database</span>
+              </div>
+              <div className="container_Dashboard_body_main_card updateDB">
+                <i class="bx bx-data"></i>
+                <br />
+                <span>Cập nhật database</span>
               </div>
             </div>
             <div className="container_Dashboard_body_main_table">
@@ -125,9 +134,9 @@ const Dashboard = () => {
                 ))}
               </table>
             </div>
-            <div className="container_Dashboard_body_main_chart">
+            {/* <div className="container_Dashboard_body_main_chart">
               <ChartAdmin />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

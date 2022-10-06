@@ -8,7 +8,7 @@ const UserInfor = () => {
 
   const fetchData = () => {
     axios
-      .get("http://localhost:5000/api/shareholders/all")
+      .get("http://localhost:8888/api/shareholder/all-shareholder")
       .then(function (response) {
         setData(response.data);
       })
@@ -50,7 +50,7 @@ const UserInfor = () => {
                 {data.map((item) => (
                   <tr>
                     <td>{item.ShareholderID}</td>
-                    <td>{item.Name}</td>
+                    <td>{item.NameShareholder}</td>
                     <td>{item.IdentityCard}</td>
                     <td>{item.Birthday}</td>
                     <td>{item.Gender}</td>

@@ -3,10 +3,15 @@ const request = require("request");
 
 const ShareholderController = {
   addShareholder: async (req, res) => {
+    const ShareholderID = await Shareholder.findOne({
+      ShareholderID: req.body.ShareholderID,
+    });
+    if (ShareholderID)
+      return res.status(400).json({ msg: "Đã tồn tại" });
     try {
       const newShareholder = new Shareholder(req.body);
       const saveShareholder = await newShareholder.save();
-      res.status(200).json(saveShareholder);
+      return res.status(200).json(saveShareholder);
     } catch (error) {
       res.status(500).json(error);
     }

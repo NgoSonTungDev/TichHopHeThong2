@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MenuAdmin from "../../components/MenuAdmin/MenuAdmin";
-import axios from "axios";
 import "./UserDetail.scss";
+import axios from "axios";
 
 const UserDetail = () => {
   const [data, setData] = useState([]);
