@@ -3,7 +3,7 @@ import Login from "./pages/Login/Login";
 import NotFound from "./pages/NotFound/NotFound";
 import Register from "./pages/Register/Register";
 import "./App.scss";
-
+import 'react-toastify/dist/ReactToastify.css';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import UserInfor from "./pages/UserInfor/UserInfor";
 import UserDetail from "./pages/UserDetail/UserDetail";

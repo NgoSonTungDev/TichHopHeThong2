@@ -35,6 +35,10 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  NameShareholder: {
+    type: String,
+    required: true,
+  },
   IdentityCard: {
     type: Number,
     required: true,
@@ -45,7 +49,11 @@ const ShareholderSchema = new mongoose.Schema({
     required: true,
   },
   Gender: {
-    type: String, //select (Nam or Nu)
+    type: String,
+    required: true,
+  },
+  IsShareholder: {
+    type: String,
     required: true,
   },
   Ethnic: {
@@ -55,6 +63,18 @@ const ShareholderSchema = new mongoose.Schema({
   TypeOfEmployee: {
     type: String,
     required: true,
+  },
+  ShareholderID: {
+    type: Number,
+    required: true
+  },
+  ShareholderID: {
+    type: Number,
+    required: true
+  },
+  ShareholderID: {
+    type: Number,
+    required: true
   },
 });
 

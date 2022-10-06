@@ -71,6 +71,30 @@
         margin: auto;
         padding-top: 25px;
         padding-bottom: 100px;
+        button {
+          padding: 5px 15px;
+          background-color: transparent;
+          font-weight: 500;
+          border-radius: 10px;
+          margin-left: 50%;
+          transform: translateX(-50%);
+        }
+        .submit_btn {
+          color: #0984e3;
+          border: 2px solid #0984e3;
+          &:hover {
+            color: #fff;
+            background-color: #0984e3;
+          }
+        }
+        .update_btn {
+          color: #d35400;
+          border: 2px solid #d35400;
+          &:hover {
+            color: #fff;
+            background-color: #d35400;
+          }
+        }
 
         .form {
           .form-control {

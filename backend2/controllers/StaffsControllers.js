@@ -3,7 +3,39 @@ const staff = require("../models/staff");
 const { Op } = require("sequelize");
 
 class StaffsControllers {
-  // [GET] /users ?search?page?limit
+  async add(req, res) {
+    try {
+      await staff.create(req.body);
+      res.send({ msg: "succesfully !!!" });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async update(req, res) {
+    try {
+      await staff.update(
+        {
+          Name: req.body.Name,
+          IdentityCard: req.body.IdentityCard,
+          IsShareholder: req.body.IsShareholder,
+          Earnings: req.body.Earnings,
+          DayOff: req.body.DayOff,
+          PaidLastYear: req.body.PaidLastYear,
+          PaidToCate: req.body.PaidToCate,
+        },
+        {
+          where: {
+            ShareholderID: req.params.id,
+          },
+        }
+      );
+      res.send({ msg: "succesfully !!!" });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async getAll(req, res) {
     try {
       const search = req.query.q;
@@ -17,7 +49,7 @@ class StaffsControllers {
             account: { [Op.substring]: `${search}` },
           },
         });
-       return res.json({ total: count, data: rows });
+        return res.json({ total: count, data: rows });
       }
       if (page && limit) {
         const { count, rows } = await staff.findAndCountAll({
@@ -34,13 +66,13 @@ class StaffsControllers {
             account: { [Op.substring]: `${search}` },
           },
         });
-        return  res.json({ total: count, data: rows });
+        return res.json({ total: count, data: rows });
       }
       if (limit) {
         const { count, rows } = await staff.findAndCountAll({
           limit: parseInt(limit),
         });
-        return  res.json({ total: count, data: rows });
+        return res.json({ total: count, data: rows });
       } else {
         const { count, rows } = await staff.findAndCountAll();
         return res.json({ total: count, data: rows });
@@ -49,25 +81,12 @@ class StaffsControllers {
       console.log("lỗi");
     }
   }
-  // [GET] /users
-  async get(req, res) {
-    try {
-      const users = await staff.findAll({
-        where: {
-          id: req.params.id,
-        },
-      });
-      res.json(users);
-    } catch (err) {
-      console.log("lỗi");
-    }
-  }
-  // [DELETE] /users/id
+
   async delete(req, res) {
     try {
       await staff.destroy({
         where: {
-          id: req.params.id,
+          ShareholderID: req.params.id,
         },
       });
       res.send("succesfully !!!");
@@ -75,17 +94,6 @@ class StaffsControllers {
       console.log("lỗi");
     }
   }
-
-  // [POST] 
-  async add(req, res) {
-    try {
-      await staff.create(req.body);
-      res.send({ msg: "succesfully !!!" });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
 }
 
 module.exports = new StaffsControllers();

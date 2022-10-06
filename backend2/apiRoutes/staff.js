@@ -5,7 +5,7 @@ const StaffsControllers = require('../controllers/StaffsControllers')
 
 router.post('/add',StaffsControllers.add)
 router.get('/staff',StaffsControllers.getAll)
-router.get('/staff/:id',StaffsControllers.get)
+router.put('/update/:id',StaffsControllers.update)
 router.delete('/staff/:id',StaffsControllers.delete)
 
 

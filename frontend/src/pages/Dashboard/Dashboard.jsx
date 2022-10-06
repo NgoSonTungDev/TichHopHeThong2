@@ -14,6 +14,7 @@ const Dashboard = () => {
   const sumDayOff = data.map((item) => item.DayOff);
   const array = useRef([]);
   const group = [];
+  console.log(group);
 
   array.current.forEach((element) => {
     const o = (group[element.ShareholderID] = group[element.ShareholderID] || {
@@ -85,7 +86,7 @@ const Dashboard = () => {
               <div className="container_Dashboard_body_main_card">
                 <i className="bx bx-money"></i>
                 <p className="dollars">
-                  {sumArray(sumEarnings) / dataDB2.length}
+                  {Math.floor(sumArray(sumEarnings) / dataDB2.length)}
                 </p>
                 <span>Trung bình cộng</span>
               </div>

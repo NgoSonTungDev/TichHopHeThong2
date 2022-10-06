@@ -6,8 +6,7 @@ const ShareholderController = {
     const ShareholderID = await Shareholder.findOne({
       ShareholderID: req.body.ShareholderID,
     });
-    if (ShareholderID)
-      return res.status(400).json({ msg: "Đã tồn tại" });
+    if (ShareholderID) return res.status(400).json({ msg: "Đã tồn tại" });
     try {
       const newShareholder = new Shareholder(req.body);
       const saveShareholder = await newShareholder.save();

@@ -18,7 +18,7 @@ const ShareholderController = {
     try {
       await pool.connect();
       let shareholder = { ...req.body };
-      let insert = await pool
+      await pool
         .request()
         .input("ShareholderID", sql.Int, shareholder.ShareholderID)
         .input(
@@ -37,6 +37,32 @@ const ShareholderController = {
       res.json("insert successfullly");
     } catch (error) {
       res.status(500).json(error);
+    }
+  },
+  UpdateShareholder: async(req,res) =>{
+    try {
+      await pool.connect();
+      const ShareholderID = req.params.id;
+      let shareholder = { ...req.body };
+      await pool
+        .request()
+        .input(
+          "NameShareholder",
+          sql.NVarChar(100),
+          shareholder.NameShareholder
+        )
+        .input("IdentityCard", sql.Int, shareholder.IdentityCard)
+        .input("Birthday", sql.NVarChar(100), shareholder.Birthday)
+        .input("Gender", sql.NVarChar(10), shareholder.Gender)
+        .input("Ethnic", sql.NVarChar(10), shareholder.Ethnic)
+        .input("TypeOfEmployee", sql.NVarChar(10), shareholder.TypeOfEmployee)
+        .query(
+          `update Shareholder set  NameShareholder=@NameShareholder,IdentityCard=@IdentityCard,Birthday=@Birthday,Gender=@Gender,Ethnic=@Ethnic,TypeOfEmployee=@TypeOfEmployee where ShareholderID=${ShareholderID}` 
+        );
+      res.json("update successfullly");
+      
+    } catch (error) {
+      res.status(500).json(error)
     }
   },
   deleteShareholder: async (req, res) => {
