@@ -45,7 +45,7 @@ const ShareholderSchema = new mongoose.Schema({
     required: true,
   },
   Gender: {
-    type: String,
+    type: String, //select (Nam or Nu)
     required: true,
   },
   Ethnic: {

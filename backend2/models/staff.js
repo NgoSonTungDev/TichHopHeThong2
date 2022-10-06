@@ -21,7 +21,7 @@ const Staff = db.define("staff", {
     allowNull: true,
   },
   IsShareholder:{
-    type: DataTypes.STRING,
+    type: DataTypes.STRING, //select (Phải or Không)
     allowNull: true,
   },
   Earnings: {

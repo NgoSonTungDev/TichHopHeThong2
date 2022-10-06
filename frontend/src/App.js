@@ -7,6 +7,8 @@ import "./App.scss";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import UserInfor from "./pages/UserInfor/UserInfor";
 import UserDetail from "./pages/UserDetail/UserDetail";
+import AddUserInfor from "./pages/AddUserInfor/AddUserInfor";
+import AddUserDetail from "./pages/AddUserDetail/AddUserDetail";
 
 function App() {
   const admin = localStorage.getItem("admin");
@@ -15,7 +17,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/register" element={<Register />} />
           {/* {admin === "true" && ( */}
             <Route
@@ -23,8 +25,16 @@ function App() {
               element={<Dashboard />}
             />
             <Route
+              path="/add-user"
+              element={<AddUserInfor />}
+            />
+            <Route
               path="/user-information"
               element={<UserInfor />}
+            />
+            <Route
+              path="/add-detail"
+              element={<AddUserDetail />}
             />
             <Route
               path="/user-detail"
