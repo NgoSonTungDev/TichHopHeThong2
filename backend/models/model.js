@@ -52,10 +52,6 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  IsShareholder: {
-    type: String,
-    required: true,
-  },
   Ethnic: {
     type: String,
     required: true,
@@ -64,17 +60,25 @@ const ShareholderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  ShareholderID: {
-    type: Number,
-    required: true
+  IsShareholder: {
+    type: String,
+    required: true,
   },
-  ShareholderID: {
+  DayOff: {
     type: Number,
-    required: true
+    required: true,
   },
-  ShareholderID: {
+  Earnings: {
     type: Number,
-    required: true
+    required: true,
+  },
+  PaidLastYear: {
+    type: Number,
+    required: true,
+  },
+  PaidToCate: {
+    type: Number,
+    required: true,
   },
 });
 

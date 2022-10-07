@@ -18,7 +18,7 @@ const MenuAdmin = () => {
             />
           </div>
           <div className="container_menu_admin_intro_text">
-            <p>{name}</p>
+            <p>NGOSONTUNG</p>
             <i>admin</i>
           </div>
         </div>
@@ -43,14 +43,14 @@ const MenuAdmin = () => {
               navigation("/user-information");
             }}
           >
-            <i class="bx bx-user-circle"></i> <span>Thông tin cá nhân</span>
+            <i className="bx bx-user-circle"></i> <span>Thông tin cá nhân</span>
           </li>
           <div className="function"
            onClick={() => {
             navigation("/function-user");
           }}>
             <p>
-              <i class="bx bx-cog"></i> Function
+              <i className="bx bx-cog"></i> Function
             </p>
           </div>
           <li
@@ -62,7 +62,7 @@ const MenuAdmin = () => {
               navigation("/user-detail");
             }}
           >
-            <i class="bx bxs-user-badge"></i> <span>Thông tin chi tiết</span>
+            <i className="bx bxs-user-badge"></i> <span>Thông tin chi tiết</span>
           </li>
           <div className="function"  onClick={() => {
               navigation("/function-detail");

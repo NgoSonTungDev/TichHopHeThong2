@@ -47,6 +47,7 @@ const UserDetail = () => {
                   <th>lương</th>
                   <th>trả vào năm ngoái</th>
                   <th>thanh toán cho đến nay</th>
+                  <th>Xóa</th>
                 </tr>
                 {data.map((item) => (
                   <tr>
@@ -58,6 +59,7 @@ const UserDetail = () => {
                     <td>{item.Earnings}</td>
                     <td>{item.PaidLastYear}</td>
                     <td>{item.PaidToCate}</td>
+                    <td><button><i class='bx bxs-trash'></i> Delete</button></td>
                   </tr>
                 ))}
               </table>

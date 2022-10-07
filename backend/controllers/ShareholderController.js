@@ -17,38 +17,8 @@ const ShareholderController = {
   },
   getAll: async (req, res) => {
     try {
-      var NameStaff = req.query?.name;
-      var page = req.query?.page;
-
-      if (!page && !NameStaff) {
-        const allShareholder = await Shareholder.find();
-        return res.status(200).json(allShareholder);
-      }
-
-      if (NameStaff) {
-        var condition = NameStaff
-          ? { Name: { $regex: new RegExp(NameStaff), $options: "i" } }
-          : {};
-
-        Shareholder.find(condition)
-          .then((data) => {
-            return res.status(200).json(data);
-          })
-          .catch((err) => {
-            res.status(500).send({
-              message:
-                err.message ||
-                "Some error occurred while retrieving shareholder.",
-            });
-          });
-      }
-
-      if (page) {
-        page = parseInt(page);
-        var SkipNumber = (page - 1) * 6;
-        const result = await Shareholder.find().skip(SkipNumber).limit(3);
-        return res.status(200).json(result);
-      }
+      const allShareholder = await Shareholder.find();
+      return res.status(200).json(allShareholder);
     } catch (error) {
       res.status(500).json(error);
     }

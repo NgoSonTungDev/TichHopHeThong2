@@ -46,6 +46,7 @@ const UserInfor = () => {
                   <th>giới tính</th>
                   <th>dân tộc</th>
                   <th>loại nhân viên</th>
+                  <th>Xóa</th>
                 </tr>
                 {data.map((item) => (
                   <tr>
@@ -56,6 +57,7 @@ const UserInfor = () => {
                     <td>{item.Gender}</td>
                     <td>{item.Ethnic}</td>
                     <td>{item.TypeOfEmployee}</td>
+                    <td><button><i class='bx bxs-trash'></i> Delete</button></td>
                   </tr>
                 ))}
               </table>

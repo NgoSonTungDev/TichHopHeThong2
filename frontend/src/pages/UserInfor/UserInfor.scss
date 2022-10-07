@@ -83,6 +83,22 @@
         padding: 8px;
       }
 
+      td {
+        button {
+          i {
+            font-size: 18px;
+            transform: translateY(1px);
+          }
+          font-weight: 500;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          &:hover {
+            color: #d63031;
+          }
+        }
+      }
+
       tr:nth-child(even) {
         background-color: #dddddd;
       }
